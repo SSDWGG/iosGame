@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+    <meta name="theme-color" content="#111116" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="口袋街机" />
+    <title>口袋街机</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div>
+            <h1>口袋街机</h1>
+            <p id="modeLabel">俄罗斯方块</p>
+          </div>
+        </div>
+
+        <nav class="mode-switch" aria-label="游戏切换">
+          <button class="mode-button is-active" type="button" data-mode="tetris">俄罗斯方块</button>
+          <button class="mode-button" type="button" data-mode="shooter">飞机大战</button>
+          <button class="mode-button" type="button" data-mode="snake">贪吃蛇</button>
+          <button class="mode-button" type="button" data-mode="breakout">打砖块</button>
+          <button class="mode-button" type="button" data-mode="merge">数字合成</button>
+          <button class="mode-button" type="button" data-mode="flappy">像素飞行</button>
+          <button class="mode-button" type="button" data-mode="memory">记忆翻牌</button>
+          <button class="mode-button" type="button" data-mode="mines">方格探雷</button>
+          <button class="mode-button" type="button" data-mode="jumper">弹跳上升</button>
+          <button class="mode-button" type="button" data-mode="maze">迷宫逃脱</button>
+          <button class="mode-button" type="button" data-mode="pong">霓虹乒乓</button>
+          <button class="mode-button" type="button" data-mode="invaders">太空入侵</button>
+          <button class="mode-button" type="button" data-mode="mole">快打地鼠</button>
+          <button class="mode-button" type="button" data-mode="stack">堆叠高塔</button>
+          <button class="mode-button" type="button" data-mode="flood">色块扩张</button>
+        </nav>
+      </header>
+
+      <section class="hud" aria-label="游戏状态">
+        <div class="hud-item">
+          <span id="statALabel">分数</span>
+          <strong id="statA">0</strong>
+        </div>
+        <div class="hud-item">
+          <span id="statBLabel">等级</span>
+          <strong id="statB">1</strong>
+        </div>
+        <div class="hud-item">
+          <span id="statCLabel">行数</span>
+          <strong id="statC">0</strong>
+        </div>
+        <div class="hud-actions">
+          <button class="icon-button" type="button" id="pauseButton" aria-label="暂停">Ⅱ</button>
+          <button class="icon-button" type="button" id="restartButton" aria-label="重新开始">↻</button>
+        </div>
+      </section>
+
+      <main class="stage-wrap">
+        <canvas id="gameCanvas" width="360" height="540" aria-label="游戏画面"></canvas>
+        <div class="overlay is-hidden" id="overlay" role="dialog" aria-live="polite">
+          <div class="overlay-panel">
+            <h2 id="overlayTitle">暂停</h2>
+            <p id="overlayText">当前进度已保留</p>
+            <button class="primary-button" type="button" id="overlayButton">继续</button>
+          </div>
+        </div>
+      </main>
+
+      <footer class="controls" aria-label="触控操作">
+        <div class="control-cluster">
+          <button class="control-button" type="button" data-action="left" aria-label="向左">←</button>
+          <button class="control-button" type="button" data-action="right" aria-label="向右">→</button>
+        </div>
+        <div class="control-cluster">
+          <button class="control-button" type="button" data-action="rotate" aria-label="旋转">↻</button>
+          <button class="control-button" type="button" data-action="down" aria-label="向下">↓</button>
+          <button class="control-button control-button-wide" type="button" data-action="drop" aria-label="快速下落">⇣</button>
+        </div>
+      </footer>
+    </div>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
