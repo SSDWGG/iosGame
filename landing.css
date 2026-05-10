@@ -1,0 +1,295 @@
+:root {
+  color-scheme: dark;
+  --bg: #111116;
+  --bg-2: #18181f;
+  --panel: rgba(245, 244, 235, 0.08);
+  --panel-strong: rgba(245, 244, 235, 0.15);
+  --ink: #f5f4eb;
+  --muted: #a6a391;
+  --line: rgba(245, 244, 235, 0.18);
+  --cyan: #42d7ff;
+  --coral: #ff4e63;
+  --gold: #f2c14e;
+  --green: #57e389;
+  --violet: #9e7bff;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "PingFang SC", "Avenir Next Condensed", "DIN Condensed", sans-serif;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  opacity: 0.28;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent);
+  z-index: 0;
+}
+
+a { color: var(--cyan); text-decoration: none; }
+a:hover { color: var(--gold); }
+
+/* ── Hero ── */
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 60px 20px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255,78,99,0.18), transparent 28%),
+    radial-gradient(circle at 82% 22%, rgba(66,215,255,0.16), transparent 26%),
+    linear-gradient(135deg, #111116 0%, #16151b 52%, #101014 100%);
+  text-align: center;
+  z-index: 1;
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(66,215,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,78,99,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: gridDrift 24s linear infinite;
+}
+
+@keyframes gridDrift {
+  from { background-position: 0 0; }
+  to { background-position: 40px 40px; }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.logo-mark {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 auto;
+  border: 2px solid var(--ink);
+  background:
+    linear-gradient(90deg, transparent 45%, var(--ink) 45% 55%, transparent 55%),
+    linear-gradient(var(--cyan), var(--cyan)) 7px 7px / 12px 12px no-repeat,
+    linear-gradient(var(--coral), var(--coral)) 27px 27px / 12px 12px no-repeat,
+    var(--bg);
+  box-shadow: 6px 6px 0 var(--coral);
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: clamp(36px, 10vw, 56px);
+  line-height: 1;
+  letter-spacing: 2px;
+}
+
+.tagline {
+  margin: 8px 0 32px;
+  color: var(--muted);
+  font-size: clamp(16px, 4vw, 20px);
+  line-height: 1.5;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 180ms ease;
+  cursor: pointer;
+}
+
+.btn-primary {
+  border-color: rgba(87,227,137,0.7);
+  background: rgba(87,227,137,0.13);
+  color: var(--green);
+}
+.btn-primary:hover {
+  background: rgba(87,227,137,0.22);
+  color: var(--green);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(87,227,137,0.14);
+}
+
+.btn-secondary {
+  background: var(--panel);
+  color: var(--ink);
+}
+.btn-secondary:hover {
+  background: var(--panel-strong);
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
+.hero-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 30px;
+  color: var(--muted);
+  font-size: 13px;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* ── Sections ── */
+.section {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.section h2 {
+  margin: 0 0 32px;
+  font-size: clamp(24px, 6vw, 34px);
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* ── Game Grid ── */
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 12px;
+}
+
+.game-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  font-size: 15px;
+  transition: all 140ms ease;
+}
+.game-card:hover {
+  border-color: rgba(66,215,255,0.4);
+  background: rgba(66,215,255,0.08);
+  transform: translateY(-2px);
+}
+
+.game-icon { font-size: 20px; }
+
+/* ── Features ── */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.feature-card {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+.feature-card h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+.feature-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ── Tech ── */
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.tech-list code {
+  padding: 8px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  color: var(--cyan);
+  font-size: 14px;
+}
+
+/* ── Footer ── */
+.footer {
+  position: relative;
+  z-index: 1;
+  padding: 40px 24px;
+  text-align: center;
+  border-top: 1px solid var(--line);
+}
+
+.footer p {
+  margin: 6px 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.footer-links a {
+  color: var(--muted);
+}
+.footer-links a:hover { color: var(--cyan); }
+
+/* ── Mobile ── */
+@media (max-width: 480px) {
+  .section { padding: 60px 16px; }
+  .game-grid { grid-template-columns: repeat(3, 1fr); }
+  .game-card { padding: 12px 8px; font-size: 13px; justify-content: center; }
+  .game-icon { font-size: 18px; }
+}
