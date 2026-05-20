@@ -7,7 +7,7 @@
 | 入口 | 地址 |
 |------|------|
 | 项目介绍页 | [iosGame.ssdwgg.site](https://iosGame.ssdwgg.site) |
-| 项目介绍页 | [iosGame.aiwgg.cn](http://iosGame.aiwgg.cn) |
+| 项目介绍页 | [iosGame.aiwgg.cn](https://iosGame.aiwgg.cn) |
 | GitHub Pages | [ssdwgg.github.io/iosGame](https://ssdwgg.github.io/iosGame) |
 
 ## 游戏列表
